@@ -62,7 +62,8 @@ angular.module('<%= app.name %>')
       return $http({
         method: type,
         url: buildUrl(resourceName, id, query),
-        data: data
+        data: data,
+        headers: (type === 'POST' ? {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'} : '')
       });
     };
 
